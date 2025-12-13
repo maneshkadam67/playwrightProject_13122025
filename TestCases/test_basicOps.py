@@ -82,6 +82,13 @@ def test_select_options(page:Page):
         new_page=p.value
         expect(new_page.locator('ul[class="clearfix"] li')).to_have_text("contact@rahulshettyacademy.com")
     page.on("")
+    page.close()
 
-
+def test_select_options1(page:Page):
+    page.goto("https://rahulshettyacademy.com/loginpagePractise/#")
+    with page.expect_popup() as p:
+        page.locator("body > a").click()
+        new_page=p.value
+        expect(new_page.locator('ul[class="clearfix"] li')).to_have_text("contact@rahulshettyacademy.com")
+    page.on("")
     page.close()
