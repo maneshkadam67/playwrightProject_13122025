@@ -84,6 +84,12 @@ def test_select_options(page:Page):
     page.on("")
     page.close()
 
+def test_select_options1(page:Page):
+    page.goto("https://rahulshettyacademy.com/loginpagePractise/#")
+    with page.expect_popup() as p:
+        page.locator("body > a").click()
+        new_page=p.value
+        expect(new_page.locator('ul[class="clearfix"] li')).to_have_text("contact@rahulshettyacademy.com")
 def test_upload(page:Page):
     page.goto("https://testautomationpractice.blogspot.com/")
     page.locator("#singleFileInput").set_input_files("output_data.xlsx")
