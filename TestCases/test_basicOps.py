@@ -84,3 +84,11 @@ def test_select_options(page:Page):
     page.on("")
     page.close()
 
+def test_upload(page:Page):
+    page.goto("https://testautomationpractice.blogspot.com/")
+    page.locator("#singleFileInput").set_input_files("output_data.xlsx")
+    page.wait_for_timeout(4000)
+    page.get_by_role("button",name="Upload Single File").click()
+    page.wait_for_timeout(2000)
+    expect(page.locator("#singleFileStatus")).to_be_visible()
+    page.close()
