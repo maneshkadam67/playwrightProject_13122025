@@ -90,5 +90,4 @@ def test_select_options1(page:Page):
         page.locator("body > a").click()
         new_page=p.value
         expect(new_page.locator('ul[class="clearfix"] li')).to_have_text("contact@rahulshettyacademy.com")
-    page.on("")
     page.close()
